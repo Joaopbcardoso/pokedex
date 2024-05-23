@@ -23,17 +23,32 @@ export default function Pokedex(){
     const nextPokemon = () =>{
         setId(id+1)
     }
+
+    const prevPokemon = () =>{
+        setId(id-1)
+    }
     
     return(
         <div>
                 {pokemon && (
           
             <div className="pokemon">
-                <h1><img className="title" src="pokemon.png" alt="" /></h1>
-                <p className="name">{pokemon.name}</p>
-                <p>Peso: {pokemon.weigth}</p>
-                <img className="pokemon-img" src={pokemon.sprites.front_default} alt="Pokemon" />
-                <button onClick={nextPokemon}>Próximo</button>
+                <header>
+                    <h1><img className="title" src="pokemon.png" alt="" /></h1>
+                </header>
+                <main>
+                    <p className="name">{pokemon.name}</p>
+                    <p className="peso">Peso: {pokemon.weight}</p>
+                    <div className="select-pokemon"> 
+                        <a onClick={prevPokemon}>🢔</a>
+                    <img className="pokemon-img" src={pokemon.sprites.front_default} alt="Pokemon" />
+                    <a onClick={nextPokemon}>🢖</a> 
+                    </div>
+                </main>
+                <footer>
+                    <img src="pokemon.png" alt="" />
+                </footer>
+                
             </div>
             )}
         </div>
